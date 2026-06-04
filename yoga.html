@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Feifei — Yoga</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<!-- Inter: closest free match to Favorit/Diatype Variable (Dinamo foundry) -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --text:   rgba(0, 0, 0, 0.85);
+  --dim:    rgba(0, 0, 0, 0.55);
+  --faint:  rgba(0, 0, 0, 0.35);
+  --line:   rgba(0, 0, 0, 0.85);
+  --lline:  rgba(0, 0, 0, 0.15);
+  --blue:   #0034ee;
+  --f:      'Inter', system-ui, -apple-system, Helvetica Neue, Arial, sans-serif;
+  --nav-h:  2.65rem;
+  --foot-h: 2.2rem;
+  --px:     0.9rem;   /* horizontal page padding */
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: #fff;
+  color: var(--text);
+  font-family: var(--f);
+  font-size: 1rem;
+  line-height: 1.4;
+  letter-spacing: -0.012em;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ─────────────────────────────
+   FIXED HEADER
+───────────────────────────── */
+#nav {
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: var(--nav-h);
+  z-index: 300;
+  background: #fff;
+  border-bottom: 0.1rem solid var(--line);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  padding: 0 var(--px);
+}
+
+.nav-name {
+  font-size: 0.82rem;
+  font-weight: 400;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+
+.nav-mid {
+  display: flex;
+  justify-content: center;
+  gap: 1.6rem;
+}
+
+.nav-mid a {
+  font-size: 0.72rem;
+  color: var(--text);
+  text-decoration: none;
+  transition: color 0.12s;
+}
+
+.nav-mid a:hover { color: var(--blue); }
+
+.nav-right {
+  text-align: right;
+  font-size: 0.72rem;
+  color: var(--text);
+  letter-spacing: 0;
+}
+
+/* ─────────────────────────────
+   FIXED FOOTER
+───────────────────────────── */
+#foot {
+  position: fixed;
+  inset: auto 0 0 0;
+  height: var(--foot-h);
+  z-index: 300;
+  background: #fff;
+  border-top: 0.1rem solid var(--line);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  padding: 0 var(--px);
+}
+
+.foot-l { font-size: 0.7rem; color: var(--dim); }
+
+.foot-c {
+  text-align: center;
+}
+
+.foot-c a {
+  font-size: 0.7rem;
+  color: var(--blue);
+  text-decoration: none;
+}
+
+.foot-c a:hover { text-decoration: underline; }
+
+.foot-r {
+  text-align: right;
+  font-size: 0.7rem;
+  color: var(--dim);
+}
+
+/* ─────────────────────────────
+   MAIN
+───────────────────────────── */
+main {
+  margin-top: var(--nav-h);
+  margin-bottom: var(--foot-h);
+}
+
+/* ─────────────────────────────
+   CAPTION TREATMENT
+   top-left corner border — signature Cargo element
+───────────────────────────── */
+.cap {
+  font-size: 0.72rem;
+  color: var(--dim);
+  line-height: 1.4;
+  border-top: 0.1rem solid var(--lline);
+  border-left: 0.1rem solid var(--lline);
+  padding: 0.32rem 0 0.32rem 0.65rem;
+  margin-top: 0.55rem;
+}
+
+/* ─────────────────────────────
+   SECTION LABEL
+───────────────────────────── */
+.slabel {
+  font-size: 0.72rem;
+  color: var(--dim);
+  margin-bottom: 1.4rem;
+  letter-spacing: 0;
+}
+
+/* ─────────────────────────────
+   HERO
+───────────────────────────── */
+#hero {
+  padding: var(--px);
+  border-bottom: 0.1rem solid var(--line);
+}
+
+.hero-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 1.8rem;
+}
+
+.hero-pre {
+  font-size: 0.72rem;
+  color: var(--dim);
+}
+
+.hero-date {
+  font-size: 0.72rem;
+  color: var(--dim);
+}
+
+.hero-h1 {
+  font-size: clamp(3.8rem, 10.5vw, 9.5rem);
+  font-weight: 400;
+  line-height: 0.91;
+  letter-spacing: -0.045em;
+  margin-bottom: 0;
+}
+
+.hero-body {
+  display: grid;
+  grid-template-columns: 55fr 45fr;
+  border-top: 0.1rem solid var(--line);
+  margin-top: 1.6rem;
+}
+
+.hero-img {
+  overflow: hidden;
+  border-right: 0.1rem solid var(--line);
+}
+
+.hero-img img {
+  display: block;
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+}
+
+.hero-side {
+  padding: 1rem 0 0.8rem var(--px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hero-desc {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--dim);
+  max-width: 28rem;
+}
+
+.hero-scroll {
+  font-size: 0.7rem;
+  color: var(--faint);
+}
+
+/* ─────────────────────────────
+   ABOUT
+───────────────────────────── */
+#about {
+  padding: 2.5rem var(--px);
+  border-bottom: 0.1rem solid var(--line);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 5fr 4fr;
+  gap: 0;
+}
+
+.about-l {
+  padding-right: 1.6rem;
+  border-right: 0.1rem solid var(--line);
+}
+
+.about-r {
+  padding-left: 1.6rem;
+}
+
+.about-h2 {
+  font-size: clamp(1.55rem, 2.6vw, 2.3rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.026em;
+  margin-bottom: 1.2rem;
+}
+
+.about-p {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: var(--dim);
+  margin-bottom: 0.8rem;
+  max-width: 46rem;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 1.5rem;
+}
+
+.chip {
+  font-size: 0.68rem;
+  color: var(--dim);
+  border: 0.1rem solid var(--line);
+  padding: 0.18rem 0.5rem;
+  letter-spacing: 0;
+  transition: color 0.12s, border-color 0.12s;
+}
+
+.chip:hover { color: var(--text); border-color: var(--text); }
+
+.about-img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+}
+
+.about-img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+/* ─────────────────────────────
+   JOURNEY
+───────────────────────────── */
+#journey {
+  padding: 2.5rem var(--px);
+  border-bottom: 0.1rem solid var(--line);
+}
+
+.journey-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 0.1rem solid var(--line);
+  margin-top: 1.4rem;
+}
+
+.journey-grid--3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.j-card {
+  padding: 1.3rem 1.3rem 1.3rem 0;
+  border-right: 0.1rem solid var(--line);
+}
+
+.j-card:last-child {
+  border-right: none;
+  padding-right: 0;
+}
+
+.j-card + .j-card {
+  padding-left: 1.3rem;
+}
+
+.j-period {
+  font-size: 0.7rem;
+  color: var(--dim);
+  display: block;
+  margin-bottom: 0.55rem;
+}
+
+.j-title {
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.018em;
+  margin-bottom: 0.55rem;
+}
+
+.j-body {
+  font-size: 0.8rem;
+  line-height: 1.65;
+  color: var(--dim);
+}
+
+.j-img {
+  margin-top: 1.3rem;
+  overflow: hidden;
+  border-top: 0.1rem solid var(--line);
+  padding-top: 1rem;
+}
+
+.j-img img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+/* ─────────────────────────────
+   IMAGE STRIP
+───────────────────────────── */
+#strip {
+  display: flex;
+  border-bottom: 0.1rem solid var(--line);
+  overflow: hidden;
+}
+
+.sp {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3/4;
+  border-right: 0.1rem solid var(--line);
+  cursor: pointer;
+  background: #fff;
+}
+
+.sp:last-child { border-right: none; }
+
+.sp img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  padding: 1.2rem;
+}
+
+.sp-label { display: none; }
+
+/* ─────────────────────────────
+   TEACHING
+───────────────────────────── */
+#teaching {
+  padding: 2.5rem var(--px);
+  border-bottom: 0.1rem solid var(--line);
+}
+
+.teaching-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 0.1rem solid var(--line);
+  margin-top: 1.4rem;
+}
+
+.t-card {
+  padding: 1.3rem 1.3rem 1.3rem 0;
+  border-right: 0.1rem solid var(--line);
+}
+
+.t-card:last-child {
+  border-right: none;
+  padding-right: 0;
+}
+
+.t-card + .t-card {
+  padding-left: 1.3rem;
+}
+
+.t-num {
+  font-size: 0.7rem;
+  color: var(--dim);
+  display: block;
+  margin-bottom: 0.55rem;
+}
+
+.t-title {
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.25rem;
+}
+
+.t-subtitle {
+  font-size: 0.78rem;
+  color: var(--dim);
+  letter-spacing: -0.01em;
+  margin-bottom: 0.75rem;
+}
+
+.t-body {
+  font-size: 0.8rem;
+  line-height: 1.7;
+  color: var(--dim);
+  margin-bottom: 0.6rem;
+}
+
+.t-body:last-child { margin-bottom: 0; }
+
+.teaching-grid--2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* ─────────────────────────────
+   GALLERY
+───────────────────────────── */
+#gallery {
+  border-bottom: 0.1rem solid var(--text);
+}
+
+.gallery-hdr {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0.9rem var(--px);
+  border-bottom: 0.1rem solid var(--line);
+}
+
+.gallery-lbl { font-size: 0.72rem; color: var(--dim); }
+.gallery-cnt { font-size: 0.7rem; color: var(--faint); }
+
+/* 4-across flush grid, borders create the grid lines */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.gi {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1/1;
+  border-right: 0.1rem solid var(--line);
+  border-bottom: 0.1rem solid var(--line);
+}
+
+/* remove right border on last column */
+.gi:nth-child(4n) { border-right: none; }
+
+/* first row: make 2 items span for a featured layout */
+.gi-wide { grid-column: span 2; aspect-ratio: 2/1; }
+
+.gi img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.gi-cap {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.4rem 0.6rem;
+  font-size: 0.66rem;
+  color: rgba(255,255,255,0.7);
+  border-top: 0.1rem solid rgba(255,255,255,0.18);
+  opacity: 0;
+  transition: opacity 0.25s;
+  background: linear-gradient(transparent, rgba(0,0,0,0.25));
+}
+
+.gi:hover .gi-cap { opacity: 1; }
+
+/* ─────────────────────────────
+   CONTACT
+───────────────────────────── */
+#contact {
+  padding: 3.5rem var(--px) 4rem;
+}
+
+.contact-pre {
+  font-size: 0.72rem;
+  color: var(--dim);
+  margin-bottom: 1.4rem;
+}
+
+.contact-h2 {
+  font-size: clamp(2.8rem, 8vw, 8rem);
+  font-weight: 400;
+  line-height: 0.92;
+  letter-spacing: -0.044em;
+  margin-bottom: 2rem;
+}
+
+.contact-link {
+  font-size: 0.88rem;
+  color: var(--blue);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+
+.contact-link:hover { text-decoration: underline; }
+
+/* ─────────────────────────────
+   BEHOLD WIDGET
+───────────────────────────── */
+.behold-wrap {
+  padding: var(--px);
+  padding-bottom: 0;
+  line-height: 0;
+  font-size: 0;
+}
+
+.behold-wrap behold-widget {
+  display: block;
+  width: 100%;
+  line-height: normal;
+  font-size: initial;
+  --behold-column-count: 4;
+}
+
+/* ─────────────────────────────
+   INSTAGRAM OEMBED GRID
+───────────────────────────── */
+.ig-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: var(--px);
+  gap: 0.8rem;
+}
+
+.ig-cell {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+/* override Instagram's inline max/min-width so cards fill columns */
+.ig-cell .instagram-media {
+  max-width: 100% !important;
+  min-width: 0 !important;
+  width: 100% !important;
+  margin: 0 !important;
+  box-shadow: none !important;
+  border: 0.1rem solid var(--line) !important;
+  border-radius: 0 !important;
+}
+
+@media (max-width: 960px) {
+  .ig-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 540px) {
+  .ig-grid { grid-template-columns: 1fr; }
+}
+
+/* ─────────────────────────────
+   SANSKRIT
+───────────────────────────── */
+.sk { font-style: italic; font-weight: 600; }
+
+/* ─────────────────────────────
+   LANG TOGGLE
+───────────────────────────── */
+#lang-btn {
+  font-family: var(--f);
+  font-size: 0.72rem;
+  color: var(--text);
+  background: none;
+  border: 0.1rem solid var(--line);
+  padding: 0.18rem 0.55rem;
+  cursor: pointer;
+  letter-spacing: 0;
+  margin-left: 0.8rem;
+  transition: border-color 0.12s, color 0.12s;
+}
+
+#lang-btn:hover { color: var(--blue); border-color: var(--blue); }
+
+/* ─────────────────────────────
+   LIGHTBOX
+───────────────────────────── */
+#lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  background: rgba(0, 0, 0, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.18s ease;
+  cursor: pointer;
+}
+
+#lightbox.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+#lightbox img {
+  max-width: 92vw;
+  max-height: 92vh;
+  object-fit: contain;
+  display: block;
+  cursor: default;
+}
+
+#lightbox-close {
+  position: absolute;
+  top: var(--nav-h);
+  right: var(--px);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.5);
+  font-family: var(--f);
+  pointer-events: none;
+  padding-top: 0.6rem;
+}
+
+/* ─────────────────────────────
+   RESPONSIVE
+───────────────────────────── */
+@media (max-width: 960px) {
+  .hero-body { grid-template-columns: 1fr; }
+  .hero-img { border-right: none; border-bottom: 0.1rem solid var(--line); }
+  .hero-side { padding: 1rem 0 0.8rem; border-left: none; }
+
+  .about-grid { grid-template-columns: 1fr; }
+  .about-l { border-right: none; padding-right: 0; border-bottom: 0.1rem solid var(--line); padding-bottom: 1.5rem; margin-bottom: 1.5rem; }
+  .about-r { padding-left: 0; }
+  .about-img { max-width: 380px; }
+
+  .journey-grid { grid-template-columns: 1fr 1fr; }
+  .journey-grid--3 { grid-template-columns: 1fr; }
+  .journey-grid--3 .j-card { border-right: none; padding-right: 0; border-bottom: 0.1rem solid var(--line); }
+  .journey-grid--3 .j-card:last-child { border-bottom: none; }
+  .journey-grid--3 .j-card + .j-card { padding-left: 0; }
+  .j-card:nth-child(2) { border-right: none; }
+  .j-card:nth-child(3) { padding-left: 0; }
+  .j-card:nth-child(4) { padding-left: 1.3rem; }
+
+  .gallery-grid { grid-template-columns: 1fr 1fr; }
+  .gi:nth-child(4n) { border-right: auto; }
+  .gi:nth-child(2n) { border-right: none; }
+  .gi-wide { grid-column: span 2; }
+
+  .nav-right { display: none; }
+}
+
+@media (max-width: 640px) {
+  .nav-mid a:not(:last-child) { display: none; }
+
+  .hero-h1 { font-size: 3.4rem; }
+
+  .journey-grid { grid-template-columns: 1fr; }
+  .j-card { border-right: none; padding-right: 0; border-bottom: 0.1rem solid var(--line); }
+  .j-card:last-child { border-bottom: none; }
+  .j-card + .j-card { padding-left: 0; }
+
+  .teaching-grid:not(.teaching-grid--2) { grid-template-columns: 1fr; }
+  .teaching-grid:not(.teaching-grid--2) .t-card { border-right: none; padding-right: 0; border-bottom: 0.1rem solid var(--line); }
+  .teaching-grid:not(.teaching-grid--2) .t-card:last-child { border-bottom: none; }
+  .teaching-grid:not(.teaching-grid--2) .t-card + .t-card { padding-left: 0; }
+
+  #strip { flex-direction: column; }
+  .sp { aspect-ratio: 4/3; flex: none; border-right: none; border-bottom: 0.1rem solid var(--line); }
+  .sp:hover { flex: none; }
+
+  .gallery-grid { grid-template-columns: 1fr 1fr; }
+  .gi-wide { grid-column: span 2; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── FIXED HEADER ── -->
+<header id="nav">
+  <a href="#" class="nav-name">Feifei</a>
+  <nav class="nav-mid">
+    <a href="#about"   data-en="About"    data-zh="关于">About</a>
+    <a href="#journey" data-en="Practice" data-zh="练习">Practice</a>
+    <a href="#teaching"data-en="Teaching" data-zh="教学">Teaching</a>
+    <a href="#gallery" data-en="Gallery"  data-zh="图库">Gallery</a>
+  </nav>
+  <span class="nav-right">26.05.28<button id="lang-btn">中文</button></span>
+</header>
+
+<!-- ── FIXED FOOTER ── -->
+<footer id="foot">
+  <span class="foot-l">© 2026 Feifei</span>
+  <div class="foot-c"><a href="mailto:yogawithfeifei@gmail.com">yogawithfeifei@gmail.com</a></div>
+  <span class="foot-r"></span>
+</footer>
+
+<main>
+
+  <!-- ── HERO ── -->
+  <section id="hero">
+    <div class="hero-top">
+      <span class="hero-pre"
+        data-en="Yoga Practitioner &amp; Teacher"
+        data-zh="瑜伽习练者和分享者">Yoga Practitioner &amp; Teacher</span>
+    </div>
+    <h1 class="hero-h1">Feifei.</h1>
+    <div class="hero-body">
+      <div class="hero-img">
+        <img
+          src="images/ChatGPT%20Image%20May%2028%2C%202026%2C%2004_15_51%20PM.png"
+          alt="Yoga practice"
+        />
+      </div>
+      <div class="hero-side">
+        <p class="hero-desc"
+          data-en="Yoga returns me to the present moment — through <span class='sk'>abhyāsa</span>, devoted and consistent practice, and <span class='sk'>vairāgya</span>, the release of attachment to outcome.<br/><br/>Each breath an invitation to move from outward performance toward inner awareness."
+          data-zh="瑜伽让我回到当下——通过<span class='sk'>abhyāsa</span>，也就是坚持练习，还有<span class='sk'>vairāgya</span>，也就是不执着于结果。<br/><br/>每一次呼吸，都是往自己内心走一步的机会。">
+          Yoga returns me to the present moment — through <span class="sk">abhyāsa</span>, devoted and consistent practice, and <span class="sk">vairāgya</span>, the release of attachment to outcome.<br/><br/>Each breath an invitation to move from outward performance toward inner awareness.
+        </p>
+        <span class="hero-scroll"
+          data-en="Scroll ↓"
+          data-zh="往下看 ↓">Scroll ↓</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ABOUT ── -->
+  <section id="about">
+    <div class="slabel" data-en="About" data-zh="关于我">About</div>
+    <div class="about-grid">
+      <div class="about-l">
+        <h2 class="about-h2"
+          data-en="A doorway into<br/>inner stillness."
+          data-zh="找到内心<br/>安静的方式。">A doorway into<br/>inner stillness.</h2>
+        <p class="about-p"
+          data-en="Through <span class='sk'>āsana</span> and <span class='sk'>prāṇāyāma</span>, yoga offers a practical path to stillness — preparing the body, nervous system, and mind for deeper concentration and, ultimately, meditation."
+          data-zh="通过<span class='sk'>āsana</span>（体式）和<span class='sk'>prāṇāyāma</span>（呼吸练习），瑜伽给我们一个很实际的方法，让身体和神经系统慢慢安静下来，进入更专注的状态，最终走向冥想。">
+          Through <span class="sk">āsana</span> and <span class="sk">prāṇāyāma</span>, yoga offers a practical path to stillness — preparing the body, nervous system, and mind for deeper concentration and, ultimately, meditation.
+        </p>
+        <p class="about-p"
+          data-en="When we observe the breath, meet the body's limitations, and notice our reactions within each posture, we begin to see beyond the physical. We glimpse our attachments, our resistance, our comparisons, our fear — and in seeing them clearly, find the first opening toward release."
+          data-zh="在练习中观察自己的呼吸、感受身体的边界，也注意到自己的各种反应，慢慢就会看见平时不太留意的东西——比如执着、抗拒、爱比较和恐惧。看清楚了，才有机会放下。">
+          When we observe the breath, meet the body's limitations, and notice our reactions within each posture, we begin to see beyond the physical. We glimpse our attachments, our resistance, our comparisons, our fear — and in seeing them clearly, find the first opening toward release.
+        </p>
+        <div class="chips">
+          <span class="chip">Ashtanga</span>
+          <span class="chip">Hatha</span>
+          <span class="chip">Pranayama</span>
+          <span class="chip">200hr RYT</span>
+        </div>
+      </div>
+      <div class="about-r">
+        <div class="about-img">
+          <img
+            src="images/ChatGPT%20Image%20May%2028%2C%202026%2C%2004_19_25%20PM.png"
+            alt="Practice documentation"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── JOURNEY ── -->
+  <section id="journey">
+    <div class="slabel" data-en="Practice" data-zh="我的练习">Practice</div>
+    <h2 class="about-h2"
+      data-en="Years of practice,<br/>layers of understanding."
+      data-zh="一路练习，<br/>一路靠近自己。">Years of practice,<br/>layers of understanding.</h2>
+    <div class="journey-grid journey-grid--3">
+      <div class="j-card">
+        <span class="j-period"
+          data-en="Pandemic — First Training"
+          data-zh="疫情期间 — 第一次培训">Pandemic — First Training</span>
+        <div class="j-title"
+          data-en="Where it began"
+          data-zh="就这样开始了">Where it began</div>
+        <p class="j-body"
+          data-en="My yoga journey began during the pandemic, when I completed my first teacher training with Corepower. What started as a way to stay grounded in uncertain times quickly became something deeper — igniting a genuine passion for traditional Hatha yoga and its classical roots."
+          data-zh="疫情期间，我在 CorePower 完成了第一次瑜伽教师培训。最开始只是想在那段混乱的时间里，找一个让自己安定下来的方式。没想到练着练着，就越来越被瑜伽吸引，也慢慢爱上传统哈他瑜伽，以及它背后更深的东西。">My yoga journey began during the pandemic, when I completed my first teacher training with Corepower. What started as a way to stay grounded in uncertain times quickly became something deeper — igniting a genuine passion for traditional Hatha yoga and its classical roots.</p>
+      </div>
+      <div class="j-card">
+        <span class="j-period"
+          data-en="2023 — Ashtanga"
+          data-zh="2023 — 阿斯汤加">2023 — Ashtanga</span>
+        <div class="j-title"
+          data-en="A consistent daily practice"
+          data-zh="持续练习">A consistent daily practice</div>
+        <p class="j-body"
+          data-en="Since 2023, I have maintained a consistent Ashtanga practice. The structure and discipline of the Ashtanga system — returning to the same sequence, every day — taught me more about the nature of practice than any single class or training ever could."
+          data-zh="从 2023 年开始，我保持着稳定的阿斯汤加练习。每天回到同一套序列里，看起来是在重复，但每一天的身体和状态其实都不一样。这样的重复本身就是一种学习，也比很多道理更能让我看清自己。">Since 2023, I have maintained a consistent Ashtanga practice. The structure and discipline of the Ashtanga system — returning to the same sequence, every day — taught me more about the nature of practice than any single class or training ever could.</p>
+      </div>
+      <div class="j-card">
+        <span class="j-period"
+          data-en="2025 — Yoga Education College"
+          data-zh="2025 — Yoga Education College">2025 — Yoga Education College</span>
+        <div class="j-title"
+          data-en="Deepening the study"
+          data-zh="继续往深处走">Deepening the study</div>
+        <p class="j-body"
+          data-en="In 2025, I expanded my studies with Yoga Education College, exploring Yoga Sangraha, Pranayama, and Indian philosophy. This year of study further deepened both my practice and my understanding of yoga — not just as movement, but as a complete science of the self."
+          data-zh="2025 年，我在 Yoga Education College 继续学习了 Yoga Sangraha、呼吸法和印度哲学。那一年让我更清楚地感受到，瑜伽不只是体式，也不只是让身体变柔软。它更像是一套认识自己、照顾自己、和生活相处的方法。">In 2025, I expanded my studies with Yoga Education College, exploring Yoga Sangraha, Pranayama, and Indian philosophy. This year of study further deepened both my practice and my understanding of yoga — not just as movement, but as a complete science of the self.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── IMAGE STRIP ── -->
+  <div id="strip">
+    <div class="sp">
+      <img src="practice/IMG_2308.PNG" alt="Ashtanga practice"/>
+      <span class="sp-label">Ashtanga practice</span>
+    </div>
+    <div class="sp">
+      <img src="practice/IMG_2309.PNG" alt="With Eddie Stern"/>
+      <span class="sp-label">With Eddie Stern</span>
+    </div>
+    <div class="sp">
+      <img src="practice/IMG_2307.PNG" alt="Yoga class group photo"/>
+      <span class="sp-label">Yoga class</span>
+    </div>
+    <div class="sp">
+      <img src="practice/IMG_2310.PNG" alt="Yoga Education College"/>
+      <span class="sp-label">Yoga Education College</span>
+    </div>
+  </div>
+
+  <!-- ── TEACHING ── -->
+  <section id="teaching">
+    <div class="slabel" data-en="Teaching" data-zh="教学">Teaching</div>
+    <h2 class="about-h2"
+      data-en="Sharing the practice."
+      data-zh="把这些带给更多人。">Sharing the practice.</h2>
+    <div class="teaching-grid teaching-grid--2">
+      <div class="t-card">
+        <span class="t-num">01</span>
+        <div class="t-title"
+          data-en="Yoga Sangraha"
+          data-zh="瑜伽合集（Yoga Sangraha）">Yoga Sangraha</div>
+        <div class="t-subtitle"
+          data-en="Hatha Yoga with a contemporary approach"
+          data-zh="以当代方式练习哈他瑜伽">Hatha Yoga with a contemporary approach</div>
+        <p class="t-body"
+          data-en='Sangraha means "a collection" or "compendium." These classes are grounding and calming sequences of asanas and pranayama that have a deliberate effect on the nervous system&apos;s signaling.'
+          data-zh=""Sangraha"的意思是"合集"或"汇编"。这些课程由一系列体式和呼吸法组成，整体节奏扎实、安定、平静，并有意识地作用于神经系统的信号传递。">Sangraha means "a collection" or "compendium." These classes are grounding and calming sequences of asanas and pranayama that have a deliberate effect on the nervous system's signaling.</p>
+        <p class="t-body"
+          data-en="The practices originate from the broader Hatha Yoga tradition, rather than from any specific lineage. These sequences have been put together by Eddie Stern, drawing from experimentation, study, and exploration of classical Hatha Yoga practices and texts."
+          data-zh="这些练习源自更广义的哈他瑜伽传统，而不是某一个特定传承。它们由 Eddie Stern 编排而成，灵感来自他对经典哈他瑜伽练习与文本的不断实践、学习和探索。">The practices originate from the broader Hatha Yoga tradition, rather than from any specific lineage. These sequences have been put together by Eddie Stern, drawing from experimentation, study, and exploration of classical Hatha Yoga practices and texts.</p>
+      </div>
+      <div class="t-card">
+        <span class="t-num">02</span>
+        <div class="t-title"
+          data-en="Beginners Pranayama"
+          data-zh="初学者调息法">Beginners Pranayama</div>
+        <div class="t-subtitle"
+          data-en="Breathing practice for all levels"
+          data-zh="不管有没有基础都可以来">Breathing practice for all levels</div>
+        <p class="t-body"
+          data-en="Pranayama is a key practice of both the Ashtanga and Hatha schools of Yoga. It prepares the body, nervous system, and mind for one-pointed concentration, leading to the practice of meditation."
+          data-zh="调息法（呼吸练习）是阿斯汤加和哈他瑜伽都很重视的一部分，能帮身体和心理进入更专注的状态，也是走向冥想的入口。">Pranayama is a key practice of both the Ashtanga and Hatha schools of Yoga. It prepares the body, nervous system, and mind for one-pointed concentration, leading to the practice of meditation.</p>
+        <p class="t-body"
+          data-en="In most yoga classes encountered in the West, there is typically more emphasis on asana and less on pranayama — so we miss out on one of the most important, transformative practices of Yoga. This class will give you a grounding in practicing traditional pranayamas and kriyas."
+          data-zh="现在大部分瑜伽课都在练体式，调息法反而很少教——但它其实是瑜伽里改变最大的一块。这门课带你从头学传统调息法和洁净功法（kriyas）。">In most yoga classes encountered in the West, there is typically more emphasis on asana and less on pranayama — so we miss out on one of the most important, transformative practices of Yoga. This class will give you a grounding in practicing traditional pranayamas and kriyas.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── GALLERY ── -->
+  <section id="gallery">
+    <div class="gallery-hdr">
+      <span class="gallery-lbl"
+        data-en="Gallery — Practice Images"
+        data-zh="图库 — 练习图片">Gallery — Practice Images</span>
+    </div>
+    <div class="behold-wrap">
+      <behold-widget feed-id="r5uvYBzEZAe5LVt0SJJO"></behold-widget>
+    </div>
+  </section>
+
+  <!-- ── CONTACT ── -->
+  <section id="contact">
+    <div class="contact-pre"
+      data-en="Get in touch"
+      data-zh="联系我">Get in touch</div>
+    <h2 class="contact-h2"
+      data-en="Let's practice<br/>together."
+      data-zh="一起来<br/>练习吧。">Let's practice<br/>together.</h2>
+    <a class="contact-link" href="mailto:yogawithfeifei@gmail.com">yogawithfeifei@gmail.com</a>
+  </section>
+
+</main>
+
+<!-- Behold Instagram widget -->
+<script>
+  (() => {
+    const d=document,s=d.createElement("script");s.type="module";
+    s.src="https://w.behold.so/widget.js";d.head.append(s);
+  })();
+</script>
+
+<!-- Lightbox -->
+<div id="lightbox">
+  <img id="lb-img" src="" alt=""/>
+  <span id="lightbox-close"
+    data-en="Click anywhere to close"
+    data-zh="点击任意处关闭">Click anywhere to close</span>
+</div>
+
+<script>
+// ── Smooth anchor scrolling ──
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const navH = document.getElementById('nav').offsetHeight;
+      const top = target.getBoundingClientRect().top + window.scrollY - navH;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+
+// ── Lightbox ──
+const lb    = document.getElementById('lightbox');
+const lbImg = document.getElementById('lb-img');
+
+function openLightbox(src, alt) {
+  lbImg.src = src;
+  lbImg.alt = alt || '';
+  lb.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  lb.classList.remove('open');
+  document.body.style.overflow = '';
+  setTimeout(() => { if (!lb.classList.contains('open')) lbImg.src = ''; }, 200);
+}
+
+lb.addEventListener('click', closeLightbox);
+lbImg.addEventListener('click', e => e.stopPropagation());
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+document.querySelectorAll(
+  '.hero-img img, .about-img img, .gi img, .sp img, .j-img img'
+).forEach(img => {
+  img.addEventListener('click', () => openLightbox(img.src, img.alt));
+});
+
+// ── Language toggle ──
+let lang = 'en';
+const langBtn = document.getElementById('lang-btn');
+
+langBtn.addEventListener('click', () => {
+  lang = lang === 'en' ? 'zh' : 'en';
+  langBtn.textContent = lang === 'en' ? '中文' : 'EN';
+  document.querySelectorAll('[data-en]').forEach(el => {
+    el.innerHTML = el.dataset[lang];
+  });
+});
+</script>
+
+</body>
+</html>
