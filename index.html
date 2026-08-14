@@ -100,14 +100,25 @@ body {
   padding: 0 var(--px);
 }
 
-.foot-l { font-size: 0.7rem; color: var(--dim); }
+.foot-l {
+  font-size: 0.7rem;
+  line-height: 1;
+  color: var(--dim);
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
 
 .foot-c {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
 
 .foot-c a {
   font-size: 0.7rem;
+  line-height: 1;
   color: var(--blue);
   text-decoration: none;
 }
@@ -115,8 +126,12 @@ body {
 .foot-c a:hover { text-decoration: underline; }
 
 .foot-r {
-  text-align: right;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
   font-size: 0.7rem;
+  line-height: 1;
   color: var(--dim);
 }
 
@@ -730,7 +745,7 @@ main {
 <header id="nav">
   <a href="#" class="nav-name">Feifei</a>
   <nav class="nav-mid">
-    <a href="#about"   data-en="About"    data-zh="关于">About</a>
+    <a href="#about"   data-en="About me" data-zh="关于我">About me</a>
     <a href="#journey" data-en="Practice" data-zh="练习">Practice</a>
     <a href="#teaching"data-en="Teaching" data-zh="教学">Teaching</a>
     <a href="#gallery" data-en="Gallery"  data-zh="图库">Gallery</a>
@@ -777,21 +792,21 @@ main {
 
   <!-- ── ABOUT ── -->
   <section id="about">
-    <div class="slabel" data-en="About" data-zh="关于我">About</div>
+    <div class="slabel" data-en="About me" data-zh="关于我">About me</div>
     <div class="about-grid">
       <div class="about-l">
         <h2 class="about-h2"
-          data-en="A doorway into<br/>inner stillness."
-          data-zh="找到内心<br/>安静的方式。">A doorway into<br/>inner stillness.</h2>
+          data-en="Finding Balance"
+          data-zh="找到平衡">Finding Balance</h2>
         <p class="about-p"
-          data-en="Through <span class='sk'>āsana</span> and <span class='sk'>prāṇāyāma</span>, yoga offers a practical path to stillness — preparing the body, nervous system, and mind for deeper concentration and, ultimately, meditation."
-          data-zh="通过<span class='sk'>āsana</span>（体式）和<span class='sk'>prāṇāyāma</span>（呼吸练习），瑜伽给我们一个很实际的方法，让身体和神经系统慢慢安静下来，进入更专注的状态，最终走向冥想。">
-          Through <span class="sk">āsana</span> and <span class="sk">prāṇāyāma</span>, yoga offers a practical path to stillness — preparing the body, nervous system, and mind for deeper concentration and, ultimately, meditation.
+          data-en="As a creative professional, I spend much of my day in front of a computer, often caught up in thoughts and ideas. Through <span class='sk'>āsana</span> and <span class='sk'>prāṇāyāma</span>, I've learned to slow down, reconnect with my body, and be more present—both in my practice and in everyday life."
+          data-zh="作为一名从事创意工作的人，我每天大部分时间都在电脑前，脑子里常常充满各种想法和思绪。通过<span class='sk'>āsana</span>（体式）和<span class='sk'>prāṇāyāma</span>（呼吸练习），我学会了慢下来，重新连接自己的身体，无论是在练习中还是日常生活里，都能更专注于当下。">
+          As a creative professional, I spend much of my day in front of a computer, often caught up in thoughts and ideas. Through <span class="sk">āsana</span> and <span class="sk">prāṇāyāma</span>, I've learned to slow down, reconnect with my body, and be more present—both in my practice and in everyday life.
         </p>
         <p class="about-p"
-          data-en="When we observe the breath, meet the body's limitations, and notice our reactions within each posture, we begin to see beyond the physical. We glimpse our attachments, our resistance, our comparisons, our fear — and in seeing them clearly, find the first opening toward release."
-          data-zh="在练习中观察自己的呼吸、感受身体的边界，也注意到自己的各种反应，慢慢就会看见平时不太留意的东西——比如执着、抗拒、爱比较和恐惧。看清楚了，才有机会放下。">
-          When we observe the breath, meet the body's limitations, and notice our reactions within each posture, we begin to see beyond the physical. We glimpse our attachments, our resistance, our comparisons, our fear — and in seeing them clearly, find the first opening toward release.
+          data-en="Yoga has become a way for me to find balance within a busy, modern life. It reminds me to pause, soften, and meet myself where I am. The practice continues to help me move through both my work and my life with greater steadiness, curiosity, and awareness."
+          data-zh="瑜伽渐渐成为我在忙碌的现代生活中找到平衡的方式。它提醒我停下来，放松，接纳当下的自己。这个练习一直帮助我，让我在工作和生活中都能带着更多的稳定、好奇和觉察去面对。">
+          Yoga has become a way for me to find balance within a busy, modern life. It reminds me to pause, soften, and meet myself where I am. The practice continues to help me move through both my work and my life with greater steadiness, curiosity, and awareness.
         </p>
         <div class="chips">
           <span class="chip">Ashtanga</span>
